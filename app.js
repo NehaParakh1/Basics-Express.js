@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/admin', adminRoutes);
-app.use('/contactus', contactRoutes )
-app.use('/success', successRoutes)
+app.use('/user', contactRoutes )
+app.use('/status', successRoutes)
 app.use('/',shopRoutes);
 
 
-app.use((req, res, next)=>{
+app.use('*', (req, res, next)=>{
     res.status(404).sendFile(path.join(__dirname, 'views', 'status.html'))
 })
 
